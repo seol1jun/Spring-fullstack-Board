@@ -1,11 +1,18 @@
 package com.example.board.service;
 
 import com.example.board.dto.BoardRequest;
+import com.example.board.dto.BoardResponse;
 import com.example.board.entity.BoardEntity;
+import com.example.board.repository.BoardRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 public interface CrudService { //미리 기능을 지정
     void create(BoardRequest boardRequest);
-    void read();
+    BoardResponse read(Long id);
+    List<BoardResponse> reads();
     void update();
     void delete();
 
@@ -15,6 +22,14 @@ public interface CrudService { //미리 기능을 지정
                 .title(boardRequest.title())
                 .content(boardRequest.content())
                 .name(boardRequest.name())
+                .build();
+    }
+    default BoardResponse entityToResponse(BoardEntity boardEntity) {
+        return BoardResponse.builder()
+                .id(boardEntity.getId())
+                .title(boardEntity.getTitle())
+                .content(boardEntity.getContent())
+                .name(boardEntity.getName())
                 .build();
     }
 }

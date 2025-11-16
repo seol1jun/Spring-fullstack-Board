@@ -1,10 +1,12 @@
 package com.example.board.service;
 
 import com.example.board.dto.BoardRequest;
+import com.example.board.dto.BoardResponse;
 import com.example.board.entity.BoardEntity;
 import com.example.board.repository.BoardRepository;
 import org.springframework.stereotype.Service;
 import lombok.*;
+import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -21,8 +23,17 @@ public class CrudServiceImpl implements CrudService {
     }
 
     @Override
-    public void read() {
+    public BoardResponse read(Long id) {
+        BoardEntity boardEntity = boardRepository.findById(id).get();
+        return entityToResponse(boardEntity);
+    }
 
+    @Override
+    public List<BoardResponse> reads() {
+        List<BoardEntity> boardEntityList = (List<BoardEntity>) boardRepository.findAll();
+        return boardEntityList.stream() //steam을 돌려서 값을 하나씩 다 바꿔야함
+                .map(this::entityToResponse)
+                .toList();
     }
 
     @Override

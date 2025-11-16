@@ -1,12 +1,13 @@
 package com.example.board.controller;
 
 import com.example.board.dto.BoardRequest;
+import com.example.board.dto.BoardResponse;
 import com.example.board.service.CrudService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController //RestApi를 통신할 수 있는 컨트롤러
 @RequiredArgsConstructor
@@ -21,4 +22,16 @@ public class CrudController {
 
         crudService.create(boardRequest);
     }//boardRequest를 받아서 저장하는 작업을 하는 service에 넘겨줌
+
+    @GetMapping("/board") //이 API로 요청했을 때는 전체의 데이터를 다 조회하겠다는 뜻
+    public List<BoardResponse> readBoards() {
+        return crudService.reads();
+    }
+
+    @GetMapping("/board/{id}")
+    public BoardResponse read(@PathVariable Long id) {
+        return crudService.read(id);
+    }
+
+
 }

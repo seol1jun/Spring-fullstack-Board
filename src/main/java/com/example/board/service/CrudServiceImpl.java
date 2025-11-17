@@ -2,6 +2,7 @@ package com.example.board.service;
 
 import com.example.board.dto.BoardRequest;
 import com.example.board.dto.BoardResponse;
+import com.example.board.dto.BoardUpdateRequest;
 import com.example.board.entity.BoardEntity;
 import com.example.board.repository.BoardRepository;
 import org.springframework.stereotype.Service;
@@ -37,8 +38,10 @@ public class CrudServiceImpl implements CrudService {
     }
 
     @Override
-    public void update() {
-
+    public void update(BoardUpdateRequest boardUpdateRequest) {
+        BoardEntity boardEntity = boardRepository.findById(boardUpdateRequest.id()).get();//optional이기에 get해줌.
+        boardEntity.update(boardUpdateRequest);
+        boardRepository.save(boardEntity); //JPA의 영속성 컨텍스트에 의해 자동으로 save되긴 하지만 가독성을 위해 씀.
     }
 
     @Override

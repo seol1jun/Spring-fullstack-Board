@@ -2,6 +2,7 @@ package com.example.board.service;
 
 import com.example.board.dto.BoardRequest;
 import com.example.board.dto.BoardResponse;
+import com.example.board.dto.BoardUpdateRequest;
 import com.example.board.entity.BoardEntity;
 import com.example.board.repository.BoardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,7 @@ public interface CrudService { //미리 기능을 지정
     void create(BoardRequest boardRequest);
     BoardResponse read(Long id);
     List<BoardResponse> reads();
-    void update();
+    void update(BoardUpdateRequest boardUpdateRequest);
     void delete();
 
     //BoardEntity를 반환해야함. Impl에 save함수가 entity값을 받기에.

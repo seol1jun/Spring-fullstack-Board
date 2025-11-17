@@ -1,5 +1,6 @@
 package com.example.board.entity;
 
+import com.example.board.dto.BoardUpdateRequest;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -20,4 +21,10 @@ public class BoardEntity { //boardRequest로 받은 데이터를 담을 entity�
 
     @Column
     private String name;
+
+    public void update(BoardUpdateRequest boardUpdateRequest) {
+        this.title = boardUpdateRequest.title();
+        this.content = boardUpdateRequest.content();
+        this.name = boardUpdateRequest.name();
+    }
 }

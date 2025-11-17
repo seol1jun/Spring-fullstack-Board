@@ -15,7 +15,7 @@ public interface CrudService { //미리 기능을 지정
     BoardResponse read(Long id);
     List<BoardResponse> reads();
     void update(BoardUpdateRequest boardUpdateRequest);
-    void delete();
+    void delete(Long id);
 
     //BoardEntity를 반환해야함. Impl에 save함수가 entity값을 받기에.
     default BoardEntity requestToEntity(BoardRequest boardRequest) {

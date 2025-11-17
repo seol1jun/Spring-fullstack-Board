@@ -36,4 +36,9 @@ public class CrudController {
     public void update(@RequestBody BoardUpdateRequest boardUpdateRequest) {
         crudService.update(boardUpdateRequest);
     }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) {
+        crudService.delete(id);
+    }
 }

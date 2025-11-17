@@ -45,8 +45,8 @@ public class CrudServiceImpl implements CrudService {
     }
 
     @Override
-    public void delete() {
-
+    public void delete(Long id ) {
+        boardRepository.deleteById(id);
     }
 }
 // CrudService라는 인터페이스의 기능을 구현해놓고 자식 클래스인 CrudServiceImpl에 실제 기능을 정의해놓은 걸 구현을 통해

@@ -16,7 +16,7 @@ public class CrudController {
 
     private final CrudService crudService;
 
-    @PostMapping //RestApi 메서드를 사용하여 요청을 받음
+    @PostMapping("/create") //RestApi 메서드를 사용하여 요청을 받음
     public void create(@RequestBody BoardRequest boardRequest) {//body값의 BoardRequest 데이터를 받겠다는 뜻
         crudService.create(boardRequest);  //body값을 통해서 json 파일을 받아와 서버에 저장함.
     }//boardRequest를 받아서 저장하는 작업을 하는 service에 넘겨줌

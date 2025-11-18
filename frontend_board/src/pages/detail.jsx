@@ -21,7 +21,15 @@ export default function Detail() {
   const handleDelte = () => {
     const confirmed = window.confirm("정말로 이 글을 삭제하시나요?");
     if (confirmed) {
-      alert(`ID ${id}번 글이 삭제되었습니다.`);
+      axios.delete(`http://localhost:8080/${id}`)
+      .then(() => {
+        alert(`ID ${id}번 글이 삭제되었습니다.`);
+        window.location.href = "/" //nevigate 써도 되지않나? 나중에 한 번 써보기
+      })
+      .catch ((err) => {
+        console.error("삭제 실패:", err);
+        alert("게시글 삭제에 실패했습니다.");
+      })
     }
   };
 

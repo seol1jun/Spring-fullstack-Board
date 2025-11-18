@@ -7,7 +7,7 @@ export default function Home() {
   const [posts, setPosts] = useState([]); //게시글은 여러개이기 때문에 배열로 초기화, 백엔드에서 가져온 데이터는 이곳에 저장
 
   useEffect(() => { //얘로 서버에서 내용을 가져옴, useEffect는 페이지가 처음 열릴 때 한 번만 실행됨
-    axios.get("http://localhost:8080//board") //get의 api에게 요청을 보내서 데이터를 가져옴
+    axios.get("http://localhost:8080/board") //get의 api에게 요청을 보내서 데이터를 가져옴
     .then((res) => {
         setPosts(res.data);
     })

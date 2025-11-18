@@ -3,9 +3,11 @@ import axios from "axios";
 import "./create.css";
 
 export default function Create() {
+
   const [title, setTitle] = useState("");
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
+
   const handleSubmit = async (e) => { //제출을 하는 버튼에 들어갈 핸들함수를 만들어줌.
     e.preventDefault(); //새로고침을 막기 위한 함수
     try{ //post는 백엔드로 데이터를 전송하기 위해서 설정해줌.
@@ -42,10 +44,10 @@ export default function Create() {
           <textarea
           placeholder="내용"
           className="create-textarea"
-          />
-          <button type="submit" className="create-button">작성하기</button>
           value = {content}
           onChange={(e) => setContent(e.target.value)}
+          />
+          <button type="submit" className="create-button">작성하기</button>
       </form>
     </div>
   );

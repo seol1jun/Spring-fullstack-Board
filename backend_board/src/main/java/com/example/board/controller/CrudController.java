@@ -32,7 +32,7 @@ public class CrudController {
         return crudService.read(id);
     }
 
-    @PatchMapping
+    @PatchMapping("/board")
     public void update(@RequestBody BoardUpdateRequest boardUpdateRequest) {
         crudService.update(boardUpdateRequest);
     }

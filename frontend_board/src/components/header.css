@@ -1,19 +1,31 @@
 .header {
-    background-color: #000;
-    padding: 1rem 2rem;
-    display: flex;
-    align-items: center;
-    font-family: 'Pretendard'
-  }
-  
-  .nav-link {
-    color: #87cefa; 
-    text-decoration: none;
-    margin-right: 1.5rem;
-    font-weight: bold;
-    transition: color 0.2s;
-  }
-  
-  .nav-link:hover {
-    color: white;
-  }
+  background-color: #0d1117; /* 다크 모던 톤 */
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  font-family: 'Pretendard';
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* 은은한 구분선 */
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.nav-link {
+  color: #8ab4f8;
+  text-decoration: none;
+  margin-right: 2rem;
+  font-weight: 500;
+  font-size: 1.05rem;
+  padding: 0.3rem 0.5rem;
+  border-radius: 6px;
+  transition: all 0.25s ease-in-out;
+}
+
+.nav-link:hover {
+  color: white;
+  background-color: rgba(138, 180, 248, 0.15); /* 라이트 블루 반투명 */
+}
+
+.nav-link:active {
+  transform: scale(0.97); /* 클릭 시 살짝 눌리는 느낌 */
+}

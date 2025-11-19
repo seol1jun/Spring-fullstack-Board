@@ -5,6 +5,7 @@ import Home from "./pages/home";
 import Create from "./pages/create";
 import Detail from "./pages/detail";
 import Update from "./pages/update";
+import Login from "./pages/login";
 import './App.css'
 
 
@@ -17,6 +18,7 @@ const App = () => {
         <Route path='/create' element={<Create/>}/>
         <Route path='/board/:id' element={<Detail/>}/>
         <Route path='/update/:id' element={<Update/>}/>
+        <Route path="/login" element={<Login />} />
       </Routes>
     </div>
   )

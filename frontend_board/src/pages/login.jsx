@@ -1,0 +1,55 @@
+// frontend_board/src/pages/login.jsx
+import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import "./login.css"; 
+
+export default function Login() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await axios.post("http://localhost:8080/auth/login", {
+        username,
+        password,
+      });
+
+      const token = res.data.token; // 백엔드에서 내려준 토큰
+      localStorage.setItem("token", token); // 브라우저에 저장
+
+      alert("로그인 성공!");
+      navigate("/"); // 홈으로 이동 (home 페이지)
+    } catch (err) {
+      console.error(err);
+      alert("로그인 실패 ㅠㅠ (아이디/비밀번호 확인)");
+    }
+  };
+
+  return (
+    <div className="login-container">
+      <h2 className="login-title">로그인</h2>
+      <form className="login-form" onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="아이디"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          className="login-input"
+        />
+        <input
+          type="password"
+          placeholder="비밀번호"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="login-input"
+        />
+        <button type="submit" className="login-button">
+          로그인
+        </button>
+      </form>
+    </div>
+  );
+}

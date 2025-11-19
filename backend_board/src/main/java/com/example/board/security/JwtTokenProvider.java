@@ -2,6 +2,7 @@ package com.example.board.security;
 
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.stereotype.Component;
 
 import java.security.Key;
@@ -11,7 +12,7 @@ import java.util.Date;
 public class JwtTokenProvider {
 
     private final String SECRET = "ThisIsASecretKeyForJwtExampleThisIsASecretKey";
-    private final long EXPIRATION = 1000 * 60 * 60 * 3; // 3시간
+    private final long EXPIRATION = 1000 * 60 * 60 * 3;
 
     private final Key key;
 
@@ -19,7 +20,6 @@ public class JwtTokenProvider {
         this.key = Keys.hmacShaKeyFor(SECRET.getBytes());
     }
 
-    // 🔥 JWT 생성
     public String createToken(String username) {
         Date now = new Date();
         Date expiry = new Date(now.getTime() + EXPIRATION);
@@ -32,8 +32,17 @@ public class JwtTokenProvider {
                 .compact();
     }
 
-    // 🔥 JWT에서 username 추출
-    public String getUsername(String token) {
+    // 리퀘스트에서 token 추출
+    public String resolveToken(HttpServletRequest request) {
+        String bearer = request.getHeader("Authorization");
+        if (bearer != null && bearer.startsWith("Bearer ")) {
+            return bearer.substring(7);
+        }
+        return null;
+    }
+
+    // username 추출
+    public String getUsernameFromToken(String token) {
         try {
             return Jwts.parserBuilder()
                     .setSigningKey(key)
@@ -46,7 +55,7 @@ public class JwtTokenProvider {
         }
     }
 
-    // 🔥 JWT 유효성 검사
+    // 토큰 검증
     public boolean validateToken(String token) {
         try {
             Jwts.parserBuilder()

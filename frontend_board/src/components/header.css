@@ -10,6 +10,23 @@
   z-index: 10;
 }
 
+.logout-btn {
+  background-color: transparent;
+  border: 1px solid #58a6ff;
+  color: #58a6ff;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-left: 12px;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.logout-btn:hover {
+  background-color: #58a6ff;
+  color: black;
+}
+
 .nav-link {
   color: #8ab4f8;
   text-decoration: none;

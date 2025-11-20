@@ -18,7 +18,7 @@ export default function Login() {
       });
 
       const token = res.data.token;
-      localStorage.setItem("token", token);  // 저장 ⭐
+      localStorage.setItem("token", token);  // 저장
 
       alert("로그인 성공!");
       navigate("/");   // 홈으로 이동
@@ -31,7 +31,7 @@ export default function Login() {
   return (
     <div className="login-page">
         <div className="login-container">
-        <h2 className="login-title">로그인</h2>
+        <h2 className="login-title">Board Service 로그인</h2>
         <form className="login-form" onSubmit={handleSubmit}>
             <input 
             type="text"

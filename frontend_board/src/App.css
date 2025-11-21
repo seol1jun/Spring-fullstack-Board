@@ -1,0 +1,9 @@
+/* 화면 전체 배경을 다크 색으로 */
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #0d1117;  /* 홈이랑 비슷한 색 */
+}

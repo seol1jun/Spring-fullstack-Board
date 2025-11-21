@@ -7,13 +7,14 @@
   }
 
 .login-container {
-    max-width: 400px;
+    max-width: 420px;
     margin: 80px auto;
-    padding: 20px;
-    background-color: #0d1117; 
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  }
+    padding: 24px 24px 28px;
+    background-color: #161b22;   
+    border-radius: 10px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+}
+
   
   .login-title {
     text-align: center;

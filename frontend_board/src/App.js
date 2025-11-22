@@ -1,5 +1,5 @@
 import React from 'react'
-import { Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Header from './components/header'
 import Home from "./pages/home";
 import Create from "./pages/create";
@@ -8,11 +8,16 @@ import Update from "./pages/update";
 import Login from "./pages/login";
 import './App.css'
 
-
 const App = () => {
+  const location = useLocation();
+
+  // 로그인 페이지에서는 Header 숨기기
+  const hideHeader = location.pathname === "/login";
+
   return (
     <div>
-      <Header/>
+      {!hideHeader && <Header />}
+
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/create' element={<Create/>}/>
@@ -24,4 +29,4 @@ const App = () => {
   )
 }
 
-export default App
+export default App;

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "./login.css";
 
 export default function Login() {
@@ -49,6 +49,10 @@ export default function Login() {
             />
             <button type="submit" className="login-button">로그인</button>
         </form>
+        <div className="signup-link-wrapper">
+          <p>계정이 없으신가요?</p>
+          <Link to="/signup" className="signup-link">회원가입 하기</Link>
+        </div>
         </div>
     </div>
   );

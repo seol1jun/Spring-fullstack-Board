@@ -6,6 +6,7 @@ import Create from "./pages/create";
 import Detail from "./pages/detail";
 import Update from "./pages/update";
 import Login from "./pages/login";
+import Signup from "./pages/signup";
 import './App.css'
 
 const App = () => {
@@ -24,6 +25,7 @@ const App = () => {
         <Route path='/board/:id' element={<Detail/>}/>
         <Route path='/update/:id' element={<Update/>}/>
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
     </div>
   )

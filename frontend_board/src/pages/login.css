@@ -39,3 +39,20 @@
     border-radius: 6px;
     border: none;
   }  
+  
+  .signup-link-wrapper {
+    margin-top: 20px;
+    text-align: center;
+    color: #ccc;
+  }
+  
+  .signup-link {
+    color: #58a6ff;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  
+  .signup-link:hover {
+    text-decoration: underline;
+  }
+  

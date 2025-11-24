@@ -26,20 +26,27 @@ export default function Detail() {
 }, [id]);
 
 
-  const handleDelte = () => {
-    const confirmed = window.confirm("정말로 이 글을 삭제하시나요?");
-    if (confirmed) {
-      axios.delete(`http://localhost:8080/board/${id}`)
-      .then(() => {
-        alert(`ID ${id}번 글이 삭제되었습니다.`);
-        window.location.href = "/" //nevigate 써도 되지않나? 나중에 한 번 써보기
-      })
-      .catch ((err) => {
-        console.error("삭제 실패:", err);
-        alert("게시글 삭제에 실패했습니다.");
-      })
-    }
-  };
+const handleDelte = () => {
+  const confirmed = window.confirm("정말로 이 글을 삭제하시나요?");
+  if (confirmed) {
+
+    axios.delete(`http://localhost:8080/board/${id}`, {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`
+      }
+    })
+    .then(() => {
+      alert(`ID ${id}번 글이 삭제되었습니다.`);
+      window.location.href = "/";
+    })
+    .catch((err) => {
+      console.error("삭제 실패:", err);
+      alert("게시글 삭제에 실패했습니다.");
+    });
+
+  }
+};
+
 
   if(!post) {
     return <p>불러오는 중</p>

@@ -12,8 +12,8 @@ import './App.css'
 const App = () => {
   const location = useLocation();
 
-  // 로그인 페이지에서는 Header 숨기기
-  const hideHeader = location.pathname === "/login";
+  // 로그인 페이지와 회원가입 페이지에서는 Header 숨기기
+  const hideHeader = location.pathname === "/login" || location.pathname === "/signup";
 
   return (
     <div>

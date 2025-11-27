@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation, Navigate } from "react-router-dom";
 import Header from './components/header'
 import Home from "./pages/home";
 import Create from "./pages/create";
@@ -20,7 +20,7 @@ const App = () => {
       {!hideHeader && <Header />}
 
       <Routes>
-        <Route path='/' element={<Home/>}/>
+        <Route path="/" element={<Navigate to="/login" replace />} />
         <Route path='/create' element={<Create/>}/>
         <Route path='/board/:id' element={<Detail/>}/>
         <Route path='/update/:id' element={<Update/>}/>

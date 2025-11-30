@@ -70,7 +70,7 @@ export default function Create() {
         <textarea placeholder="내용" className="create-textarea"
                   value={content} onChange={(e) => setContent(e.target.value)} />
 
-        {/* 🔥 이미지 선택 input 추가 */}
+        {/* 이미지 선택 input 추가 */}
         <input type="file"
                accept="image/*"
                onChange={(e) => setImage(e.target.files[0])}

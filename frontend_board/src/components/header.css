@@ -1,10 +1,10 @@
 .header {
-  background-color: #0d1117; /* 다크 모던 톤 */
+  background-color: #0d1117; 
   padding: 1rem 2rem;
   display: flex;
   align-items: center;
   font-family: 'Pretendard';
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* 은은한 구분선 */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); 
   position: sticky;
   top: 0;
   z-index: 10;
@@ -40,9 +40,9 @@
 
 .nav-link:hover {
   color: white;
-  background-color: rgba(138, 180, 248, 0.15); /* 라이트 블루 반투명 */
+  background-color: rgba(138, 180, 248, 0.15); 
 }
 
 .nav-link:active {
-  transform: scale(0.97); /* 클릭 시 살짝 눌리는 느낌 */
+  transform: scale(0.97); 
 }

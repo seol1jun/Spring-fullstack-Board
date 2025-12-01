@@ -7,7 +7,7 @@ export default function Create() {
   const [title, setTitle] = useState("");
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
-  const [image, setImage] = useState(null);   // 🔥 이미지 파일 state 추가
+  const [image, setImage] = useState(null);   // 이미지 파일 state 추가
 
   const navigate = useNavigate();
 
@@ -26,7 +26,7 @@ export default function Create() {
     try {
       const token = localStorage.getItem("token");
 
-      // 🔥 multipart/form-data를 위한 FormData 객체 생성
+      // multipart/form-data를 위한 FormData 객체 생성
       const formData = new FormData();
       formData.append("title", title);
       formData.append("name", name);

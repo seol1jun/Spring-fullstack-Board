@@ -21,7 +21,7 @@ export default function Signup() {
       navigate("/login");
     } catch (error) {
       console.error(error);
-      alert("회원가입 실패! 아이디가 이미 존재할 수 있습니다.");
+      alert("회원가입 실패! ");
     }
   };
 
